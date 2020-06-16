@@ -51,7 +51,7 @@ def counting_sort(arr, maximum=None):
     """
         - go through every bucket
         - iterate throgh the arr
-        - if value in the arr[i] == bucket[index] == True, then we increase bucket by 1
+        - if value in the arr[i] == bucket.index == True, then we increase bucket by 1
         - loop through buckets and take the index from and create a loop with range using the index
     """
     # Your code here
