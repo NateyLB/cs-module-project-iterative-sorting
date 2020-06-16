@@ -69,18 +69,17 @@ def counting_sort(arr, maximum=None):
         buckets.append(0)
         
     for index in range(0,len(buckets)):
-        for idx, val in enumerate(arr):
+        for val in arr:
             if val == index:
                 buckets[index] += 1
-                arr.pop(idx)
-
+                
+    arr = []
     for index,value in enumerate(buckets):
         for times in range(value):
             arr.append(index)
 
-
     return arr
 
-test_array = [3,0,4,1,10,2,5,7,2,3,2,3,2]
+test_array = [3,0,4,1,10,2,5,7,2,3,2,3,2,2,2]
 expected =   [0,1,2,2,3,4,5,7,10]
 print(counting_sort(test_array))
