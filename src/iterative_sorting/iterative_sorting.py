@@ -1,12 +1,13 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    # loop through n-1 elements
+    # iterate through arr indexes
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
+        # get the minumum value of the array
         for j in range(i+1, len(arr)):
             if arr[smallest_index] > arr[j]:
                 smallest_index = j
@@ -15,6 +16,7 @@ def selection_sort(arr):
 
         # TO-DO: swap
         # Your code here
+        # put min value in min index
         arr[smallest_index], arr[i] = arr[i], arr[smallest_index]
 
     return arr
@@ -23,6 +25,7 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    # interate through arr indexes
     for i in range(0, len(arr)-1):
         for j in range(0, len(arr)-i-1):
             if arr[j] > arr[j+1]:
@@ -57,6 +60,7 @@ def counting_sort(arr, maximum=None):
     # Your code here
     maximum = 0
     buckets = []
+    # get maximum and check for negatives
     for value in arr:
         if value > maximum:
             maximum = value
@@ -64,16 +68,17 @@ def counting_sort(arr, maximum=None):
             return "Error, negative numbers not allowed in Count Sort"
         else:
             pass
-
+    # create buckets and initialize to zero
     for times in range(0, maximum + 1):
         buckets.append(0)
-        
+    # fill buckets
     for index in range(0,len(buckets)):
         for val in arr:
             if val == index:
                 buckets[index] += 1
-                
+    # clear arr           
     arr = []
+    # append sorted values to arr
     for index,value in enumerate(buckets):
         for times in range(value):
             arr.append(index)
